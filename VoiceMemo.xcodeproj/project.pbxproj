@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7AA35B231DB3427100710E8D /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA35B221DB3427100710E8D /* Memo.swift */; };
+		7AA35B251DB3446900710E8D /* MemoAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA35B241DB3446900710E8D /* MemoAudio.swift */; };
 		97BD262E1D6CE37F0092DA00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD262D1D6CE37F0092DA00 /* AppDelegate.swift */; };
 		97BD26301D6CE37F0092DA00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD262F1D6CE37F0092DA00 /* ViewController.swift */; };
 		97BD26351D6CE37F0092DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BD26341D6CE37F0092DA00 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		7AA35B221DB3427100710E8D /* Memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		7AA35B241DB3446900710E8D /* MemoAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoAudio.swift; sourceTree = "<group>"; };
 		97BD262A1D6CE37F0092DA00 /* VoiceMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD262D1D6CE37F0092DA00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97BD262F1D6CE37F0092DA00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				97BD26391D6CE37F0092DA00 /* Info.plist */,
 				97BD265B1D6CE7B40092DA00 /* MemoCell.swift */,
 				7AA35B221DB3427100710E8D /* Memo.swift */,
+				7AA35B241DB3446900710E8D /* MemoAudio.swift */,
 			);
 			path = VoiceMemo;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				97BD26301D6CE37F0092DA00 /* ViewController.swift in Sources */,
 				97BD262E1D6CE37F0092DA00 /* AppDelegate.swift in Sources */,
 				97BD265C1D6CE7B40092DA00 /* MemoCell.swift in Sources */,
+				7AA35B251DB3446900710E8D /* MemoAudio.swift in Sources */,
 				7AA35B231DB3427100710E8D /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
