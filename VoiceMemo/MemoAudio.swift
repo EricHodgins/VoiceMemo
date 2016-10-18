@@ -14,6 +14,10 @@ class MemoSessionManager {
     
     let session: AVAudioSession!
     
+    var permissionGranted: Bool {
+        return session.recordPermission() == .granted
+    }
+    
     private init() {
         session = AVAudioSession.sharedInstance()
         configureSession()

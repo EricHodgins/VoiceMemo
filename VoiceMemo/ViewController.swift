@@ -38,6 +38,11 @@ class ViewController: UIViewController {
         
         return button
     }()
+    
+    // MARK: - Audio Properties
+    
+    let sessionManager = MemoSessionManager.sharedInstance
+    let recorder = MemoRecorder.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,16 +95,96 @@ class ViewController: UIViewController {
     
     func startRecording() {
         toggleRecordButton(on: false)
+        
+        if !sessionManager.permissionGranted {
+            sessionManager.requestPermission(completion: { (permissionAllowed) in
+                if !permissionAllowed {
+                    self.displayInsuffcientPermissionsAlert()
+                }
+            })
+        }
+        
+        recorder.start()
     }
     
-    @objc func stopRecording() {
+    func stopRecording() {
         toggleRecordButton(on: true)
+        let outputURLString = recorder.stop()
+        
+        presentSaveMemoController { (title) in
+            let memo = Memo(id: nil, title: title, fileURLString: outputURLString)
+            self.save(memo: memo)
+        }
     }
     
-    fileprivate func toggleRecordButton(on flag: Bool) {
+    private func toggleRecordButton(on flag: Bool) {
         recordButton.isHidden = !flag
         stopButton.isHidden = flag
     }
-
+    
+    func displayInsuffcientPermissionsAlert() {
+        let alertController = UIAlertController(title: "Insuffcient Permissions!", message: "Cannot recortd without permission", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(dismissAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func presentSaveMemoController(completion: @escaping (String) -> Void) {
+        let alertController = UIAlertController(title: "Save Meme", message: nil, preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.text = "New Memo"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (action) in
+            guard let title = alertController.textFields?.first?.text else {
+                let timestamp = NSDate().timeIntervalSince1970
+                let title = "Meme_\(timestamp)"
+                
+                completion(title)
+                return
+            }
+            
+            completion(title)
+        }
+        
+        alertController.addAction(saveAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func save(memo: Memo) {
+        
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
