@@ -10,6 +10,8 @@
 		7AA35B231DB3427100710E8D /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA35B221DB3427100710E8D /* Memo.swift */; };
 		7AA35B251DB3446900710E8D /* MemoAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA35B241DB3446900710E8D /* MemoAudio.swift */; };
 		7AB78E041DB71F6A00DB6665 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB78E031DB71F6A00DB6665 /* CloudKit.framework */; };
+		7AB78E061DB723EC00DB6665 /* CloudPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB78E051DB723EC00DB6665 /* CloudPersistenceManager.swift */; };
+		7AB78E081DB72AEB00DB6665 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB78E071DB72AEB00DB6665 /* Result.swift */; };
 		97BD262E1D6CE37F0092DA00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD262D1D6CE37F0092DA00 /* AppDelegate.swift */; };
 		97BD26301D6CE37F0092DA00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD262F1D6CE37F0092DA00 /* ViewController.swift */; };
 		97BD26351D6CE37F0092DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BD26341D6CE37F0092DA00 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		7AA35B241DB3446900710E8D /* MemoAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoAudio.swift; sourceTree = "<group>"; };
 		7AB78E011DB71EBE00DB6665 /* VoiceMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoiceMemo.entitlements; sourceTree = "<group>"; };
 		7AB78E031DB71F6A00DB6665 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7AB78E051DB723EC00DB6665 /* CloudPersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudPersistenceManager.swift; sourceTree = "<group>"; };
+		7AB78E071DB72AEB00DB6665 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		97BD262A1D6CE37F0092DA00 /* VoiceMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD262D1D6CE37F0092DA00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97BD262F1D6CE37F0092DA00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				97BD265B1D6CE7B40092DA00 /* MemoCell.swift */,
 				7AA35B221DB3427100710E8D /* Memo.swift */,
 				7AA35B241DB3446900710E8D /* MemoAudio.swift */,
+				7AB78E051DB723EC00DB6665 /* CloudPersistenceManager.swift */,
+				7AB78E071DB72AEB00DB6665 /* Result.swift */,
 			);
 			path = VoiceMemo;
 			sourceTree = "<group>";
@@ -291,7 +297,9 @@
 				97BD262E1D6CE37F0092DA00 /* AppDelegate.swift in Sources */,
 				97BD265C1D6CE7B40092DA00 /* MemoCell.swift in Sources */,
 				7AA35B251DB3446900710E8D /* MemoAudio.swift in Sources */,
+				7AB78E081DB72AEB00DB6665 /* Result.swift in Sources */,
 				7AA35B231DB3427100710E8D /* Memo.swift in Sources */,
+				7AB78E061DB723EC00DB6665 /* CloudPersistenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
