@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7AA35B231DB3427100710E8D /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA35B221DB3427100710E8D /* Memo.swift */; };
 		7AA35B251DB3446900710E8D /* MemoAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA35B241DB3446900710E8D /* MemoAudio.swift */; };
+		7AB78E041DB71F6A00DB6665 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB78E031DB71F6A00DB6665 /* CloudKit.framework */; };
 		97BD262E1D6CE37F0092DA00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD262D1D6CE37F0092DA00 /* AppDelegate.swift */; };
 		97BD26301D6CE37F0092DA00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BD262F1D6CE37F0092DA00 /* ViewController.swift */; };
 		97BD26351D6CE37F0092DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BD26341D6CE37F0092DA00 /* Assets.xcassets */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		7AA35B221DB3427100710E8D /* Memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		7AA35B241DB3446900710E8D /* MemoAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoAudio.swift; sourceTree = "<group>"; };
+		7AB78E011DB71EBE00DB6665 /* VoiceMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoiceMemo.entitlements; sourceTree = "<group>"; };
+		7AB78E031DB71F6A00DB6665 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		97BD262A1D6CE37F0092DA00 /* VoiceMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BD262D1D6CE37F0092DA00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97BD262F1D6CE37F0092DA00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AB78E041DB71F6A00DB6665 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7AB78E021DB71F6A00DB6665 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AB78E031DB71F6A00DB6665 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		97BD26211D6CE37F0092DA00 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +97,7 @@
 				97BD26411D6CE37F0092DA00 /* VoiceMemoTests */,
 				97BD264C1D6CE37F0092DA00 /* VoiceMemoUITests */,
 				97BD262B1D6CE37F0092DA00 /* Products */,
+				7AB78E021DB71F6A00DB6665 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +114,7 @@
 		97BD262C1D6CE37F0092DA00 /* VoiceMemo */ = {
 			isa = PBXGroup;
 			children = (
+				7AB78E011DB71EBE00DB6665 /* VoiceMemo.entitlements */,
 				97BD262D1D6CE37F0092DA00 /* AppDelegate.swift */,
 				97BD262F1D6CE37F0092DA00 /* ViewController.swift */,
 				97BD26341D6CE37F0092DA00 /* Assets.xcassets */,
@@ -201,6 +215,14 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = E3QZ6M9437;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					97BD263D1D6CE37F0092DA00 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -410,10 +432,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VoiceMemo/VoiceMemo.entitlements;
 				DEVELOPMENT_TEAM = E3QZ6M9437;
 				INFOPLIST_FILE = VoiceMemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.VoiceMemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erichodgins.VoiceMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -423,10 +446,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VoiceMemo/VoiceMemo.entitlements;
 				DEVELOPMENT_TEAM = E3QZ6M9437;
 				INFOPLIST_FILE = VoiceMemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.VoiceMemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erichodgins.VoiceMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
