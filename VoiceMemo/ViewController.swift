@@ -39,14 +39,23 @@ class ViewController: UIViewController {
         return button
     }()
     
+    let persistenceManager = CloudPersistenceManager()
+    
     // MARK: - Audio Properties
     
     let sessionManager = MemoSessionManager.sharedInstance
     let recorder = MemoRecorder.sharedInstance
+    let player = MemoPlayer.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let playButton = UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(ViewController.playRecording))
+        navigationItem.rightBarButtonItem = playButton
+    }
+    
+    func playRecording() {
+        player.play()
     }
 
     override func didReceiveMemoryWarning() {
@@ -123,7 +132,7 @@ class ViewController: UIViewController {
     }
     
     func displayInsuffcientPermissionsAlert() {
-        let alertController = UIAlertController(title: "Insuffcient Permissions!", message: "Cannot recortd without permission", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Insuffcient Permissions!", message: "Cannot record without permission", preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(dismissAction)
         
@@ -131,7 +140,7 @@ class ViewController: UIViewController {
     }
     
     private func presentSaveMemoController(completion: @escaping (String) -> Void) {
-        let alertController = UIAlertController(title: "Save Meme", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Save Memo", message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
             textField.text = "New Memo"
         }
@@ -142,7 +151,7 @@ class ViewController: UIViewController {
         let saveAction = UIAlertAction(title: "Save", style: .default) { (action) in
             guard let title = alertController.textFields?.first?.text else {
                 let timestamp = NSDate().timeIntervalSince1970
-                let title = "Meme_\(timestamp)"
+                let title = "Memo_\(timestamp)"
                 
                 completion(title)
                 return
@@ -157,7 +166,14 @@ class ViewController: UIViewController {
     }
     
     private func save(memo: Memo) {
-        
+        persistenceManager.save(memo: memo) { (result) in
+            switch result {
+            case .Success(let memo):
+                print(memo)
+            case .Failure(let error):
+                print(error.description)
+            }
+        }
     }
 }
 

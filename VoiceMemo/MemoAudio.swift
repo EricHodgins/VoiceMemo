@@ -76,7 +76,30 @@ class MemoRecorder {
 }
 
 
+// MARK: Playing
 
+class MemoPlayer {
+    static let sharedInstance = MemoPlayer()
+    
+    var player: AVAudioPlayer
+    
+    private init() {
+        player = AVAudioPlayer()
+    }
+    
+    func play() {
+        player = try! AVAudioPlayer(contentsOf: MemoRecorder.outPutURL())
+        player.enableRate = true
+        player.prepareToPlay()
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+        } catch {
+            print(error)
+        }
+        player.play()
+    }
+}
 
 
 

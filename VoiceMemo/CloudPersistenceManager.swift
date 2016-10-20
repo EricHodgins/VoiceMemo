@@ -9,10 +9,19 @@
 import Foundation
 import CloudKit
 
-enum PersistenceError: Error {
-    case SaveFailed
+enum PersistenceError: MemoErrorType {
+    case SaveFailed(description: String)
     case InsufficientInformation
     case InvalidData
+    
+    var description: String {
+        switch self {
+        case .SaveFailed(let description):
+            return "Save Failed: \(description)"
+        default:
+            return "self"
+        }
+    }
 }
 
 
@@ -24,8 +33,8 @@ class CloudPersistenceManager {
         privateDatabase.save(record) { (record, error) in
             
             guard let record = record else {
-                if let _ = error {
-                    let persistenceError = PersistenceError.SaveFailed
+                if let error = error {
+                    let persistenceError = PersistenceError.SaveFailed(description: error.localizedDescription)
                     completion(Result.Failure(persistenceError))
                 } else {
                     let persistenceError = PersistenceError.InsufficientInformation

@@ -8,7 +8,11 @@
 
 import Foundation
 
+protocol MemoErrorType: Error {
+    var description: String { get }
+}
+
 enum Result<T> {
     case Success(T)
-    case Failure(Error)
+    case Failure(MemoErrorType)
 }
