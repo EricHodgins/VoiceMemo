@@ -18,8 +18,8 @@ struct Memo {
 }
 
 extension Memo {
-    var fileURL: URL {
-        return URL(fileURLWithPath: fileURLString)
+    var fileURL: NSURL {
+        return NSURL(fileURLWithPath: fileURLString)
     }
 }
 
@@ -28,7 +28,8 @@ extension Memo {
         let record = CKRecord(recordType: Memo.entityName)
         record.setValue(title, forKey: "title")
         
-        let asset = CKAsset(fileURL: fileURL)
+        //let asset = CKAsset(fileURL: MemoRecorder.outPutURL())
+        let asset = CKAsset(fileURL: fileURL as URL)
         record.setValue(asset, forKey: "recording")
         
         return record
@@ -37,11 +38,14 @@ extension Memo {
 
 extension Memo {
     init?(record: CKRecord) {
-        guard let title = record.value(forKey: "title") as? String,
-            let asset = record.value(forKey: "recording") as? CKAsset else {
+        guard let title = record.value(forKey: "title") as? String else {
                 return nil
         }
         
+        guard let asset = record.value(forKey: "recording") as? CKAsset else {
+            return nil
+        }
+
         self.id = record.recordID
         self.title = title
         self.fileURLString = asset.fileURL.absoluteString
