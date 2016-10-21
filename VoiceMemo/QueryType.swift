@@ -17,7 +17,11 @@ extension QueryType {
     var query: CKQuery {
         switch self {
         case .All:
-            let allPredicate = NSPredicate
+            let allPredicate = NSPredicate(value: true) // just evaluate to true every time
+            let query = CKQuery(recordType: Memo.entityName, predicate: allPredicate)
+            query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            
+            return query
         }
     }
 }

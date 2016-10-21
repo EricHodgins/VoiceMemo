@@ -12,5 +12,14 @@ class DataProvider {
     
     let manager = CloudPersistenceManager()
     
+    func performQuery(type: QueryType) {
+        manager.perform(query: type.query) { (result) in
+            self.processResult(result: result)
+        }
+    }
+    
+    private func processResult(result: Result<[Memo]>) {
+        
+    }
     
 }
