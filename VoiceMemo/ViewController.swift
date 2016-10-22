@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
-        tableView.register(MemoCell.self, forCellReuseIdentifier: MemoCell.reuseIdentifier!)
+        tableView.register(MemoCell.self, forCellReuseIdentifier: MemoCell.reuseIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -39,7 +39,13 @@ class ViewController: UIViewController {
         return button
     }()
     
-    let persistenceManager = CloudPersistenceManager()
+    lazy var dataSource: TableViewDataSource = {
+        return TableViewDataSource(results: [], tableView: self.tableView)
+    }()
+    
+    lazy var dataProvider: DataProvider = {
+        return DataProvider(delegate: self.dataSource)
+    }()
     
     // MARK: - Audio Properties
     
@@ -52,6 +58,8 @@ class ViewController: UIViewController {
         
         let playButton = UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(ViewController.playRecording))
         navigationItem.rightBarButtonItem = playButton
+        
+        dataProvider.performQuery(type: .All)
     }
     
     func playRecording() {
@@ -166,14 +174,7 @@ class ViewController: UIViewController {
     }
     
     private func save(memo: Memo) {
-        persistenceManager.save(memo: memo) { (result) in
-            switch result {
-            case .Success(let memo):
-                print(memo)
-            case .Failure(let error):
-                print(error.description)
-            }
-        }
+        dataProvider.save(memo: memo)
     }
 }
 

@@ -25,6 +25,10 @@ class DataProvider {
     
     private weak var delegate: DataProviderDelegate?
     
+    init(delegate: DataProviderDelegate?) {
+        self.delegate = delegate
+    }
+    
     func performQuery(type: QueryType) {
         manager.perform(query: type.query) { (result) in
             self.processResult(result: result)
