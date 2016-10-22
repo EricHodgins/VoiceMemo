@@ -50,6 +50,7 @@ extension TableViewDataSource: DataProviderDelegate {
                 results.insert(memo, at: index)
                 let indexPath = IndexPath(row: index, section: 0)
                 tableView.insertRows(at: [indexPath], with: .automatic)
+            }
         }
         
         tableView.endUpdates()
