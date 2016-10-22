@@ -78,8 +78,8 @@ class MemoRecorder {
 
 // MARK: Playing
 
-class MemoPlayer {
-    static let sharedInstance = MemoPlayer()
+class MemoPlayer_Test {
+    static let sharedInstance = MemoPlayer_Test()
     
     var player: AVAudioPlayer
     
@@ -101,7 +101,29 @@ class MemoPlayer {
     }
 }
 
-
+class MemoPlayer {
+    var player: AVAudioPlayer!
+    
+    static let sharedInstance = MemoPlayer()
+    private init() {
+        print("MemoPlayer initialzed.")
+    }
+    
+    func play(track: Data) {
+        if player == nil {
+            player = try! AVAudioPlayer(data: track, fileTypeHint: "m4a")
+            player.play()
+        }
+        
+        if player.isPlaying {
+            player.stop()
+            player = nil
+        }
+        
+        player = try! AVAudioPlayer(data: track, fileTypeHint: "m4a")
+        player.play()
+    }
+}
 
 
 

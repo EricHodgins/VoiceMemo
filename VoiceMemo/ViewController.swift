@@ -55,20 +55,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let playButton = UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(ViewController.playRecording))
-        navigationItem.rightBarButtonItem = playButton
-        
+        tableView.delegate = self
         dataProvider.performQuery(type: .All)
-    }
-    
-    func playRecording() {
-        player.play()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillLayoutSubviews() {
@@ -178,7 +166,16 @@ class ViewController: UIViewController {
     }
 }
 
-
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let memo = dataSource.object(atIndexPath: indexPath)
+        
+        guard let trackData = memo.track else {
+            fatalError("Cannot play file without the data.")
+        }
+        player.play(track: trackData)
+    }
+}
 
 
 

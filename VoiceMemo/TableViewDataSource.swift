@@ -21,6 +21,10 @@ class TableViewDataSource: NSObject, UITableViewDataSource {
         self.tableView.dataSource = self
     }
     
+    func object(atIndexPath indexPath: IndexPath) -> Memo {
+        return results[indexPath.row]
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
