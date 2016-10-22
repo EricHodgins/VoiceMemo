@@ -11,6 +11,7 @@
 		7AA35B251DB3446900710E8D /* MemoAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA35B241DB3446900710E8D /* MemoAudio.swift */; };
 		7AAC44F11DB9D3560098E0EA /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC44F01DB9D3560098E0EA /* DataProvider.swift */; };
 		7AAC44F31DB9D39A0098E0EA /* QueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAC44F21DB9D39A0098E0EA /* QueryType.swift */; };
+		7AAEDBC61DBB31A800625C47 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEDBC51DBB31A800625C47 /* TableViewDataSource.swift */; };
 		7AB78E041DB71F6A00DB6665 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB78E031DB71F6A00DB6665 /* CloudKit.framework */; };
 		7AB78E061DB723EC00DB6665 /* CloudPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB78E051DB723EC00DB6665 /* CloudPersistenceManager.swift */; };
 		7AB78E081DB72AEB00DB6665 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB78E071DB72AEB00DB6665 /* Result.swift */; };
@@ -45,6 +46,7 @@
 		7AA35B241DB3446900710E8D /* MemoAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoAudio.swift; sourceTree = "<group>"; };
 		7AAC44F01DB9D3560098E0EA /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		7AAC44F21DB9D39A0098E0EA /* QueryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryType.swift; sourceTree = "<group>"; };
+		7AAEDBC51DBB31A800625C47 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		7AB78E011DB71EBE00DB6665 /* VoiceMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoiceMemo.entitlements; sourceTree = "<group>"; };
 		7AB78E031DB71F6A00DB6665 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7AB78E051DB723EC00DB6665 /* CloudPersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudPersistenceManager.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				7AB78E071DB72AEB00DB6665 /* Result.swift */,
 				7AAC44F01DB9D3560098E0EA /* DataProvider.swift */,
 				7AAC44F21DB9D39A0098E0EA /* QueryType.swift */,
+				7AAEDBC51DBB31A800625C47 /* TableViewDataSource.swift */,
 			);
 			path = VoiceMemo;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				97BD265C1D6CE7B40092DA00 /* MemoCell.swift in Sources */,
 				7AA35B251DB3446900710E8D /* MemoAudio.swift in Sources */,
 				7AB78E081DB72AEB00DB6665 /* Result.swift in Sources */,
+				7AAEDBC61DBB31A800625C47 /* TableViewDataSource.swift in Sources */,
 				7AA35B231DB3427100710E8D /* Memo.swift in Sources */,
 				7AAC44F31DB9D39A0098E0EA /* QueryType.swift in Sources */,
 				7AB78E061DB723EC00DB6665 /* CloudPersistenceManager.swift in Sources */,
